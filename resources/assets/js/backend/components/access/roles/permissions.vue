@@ -1,4 +1,6 @@
 <script>
+    import {Errors} from '../../../../scripts/errors';
+
     export default{
         data(){
             return{
@@ -13,7 +15,8 @@
                     })
                     return perm;
                 }),
-                returnData: ''
+                returnData: '',
+                errors: new Errors()
             }
         },
 
@@ -26,9 +29,8 @@
             updatePermissions: function(e){
                 var action = e.target.action;
                 var data = {};
-
                 // Sort and get rid of unnecessary data
-                data['roleData'] = {id: this.role.id, display_name: this.role.display_name}
+                data['role'] = {id: this.role.id, display_name: this.role.display_name}
                 data['permissions'] = []
 
                 // Only send over the id's of permissions the role will have access to
@@ -47,7 +49,7 @@
                         toastr.error('Something went wrong whilst updating the role.')
                     }
                 }, function (response){
-                    this.returnData = response.data;
+                    this.errors.update(response.data);
                     toastr.error('Failed to update role');
                 });
 

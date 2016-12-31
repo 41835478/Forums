@@ -1,4 +1,5 @@
-<script>
+<script type="text/babel">
+    import {Errors} from '../../../../scripts/errors';
     export default{
         data(){
             return{
@@ -10,7 +11,11 @@
                 permissions: window.permissions.map(function(permission){
                     permission.selected = false;
                     return permission;
-                })
+                }),
+
+               errors: new Errors(),
+
+
             }
         },
 
@@ -25,6 +30,7 @@
 
                 data['role'] = this.role;
                 data['permissions'] = [];
+
 
                 // Only send over the id's of permissions the role will have access to
                 this.permissions.forEach(function(permission){
@@ -41,7 +47,7 @@
                         toastr.error('Failed to create role..')
                     }
                 }, function (response){
-                    this.returnData = response.data;
+                    this.errors.update(response.data);
                     toastr.error('Failed to create role');
                 });
             }

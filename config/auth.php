@@ -64,6 +64,10 @@ return [
     |
     */
 
+
+    // Fix for entrust error
+    'model' => App\User::class,
+
     'providers' => [
         'users' => [
             'driver' => 'eloquent',

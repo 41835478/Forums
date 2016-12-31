@@ -112,7 +112,7 @@ class rolesController extends Controller
         $input = $request->all();
 
         // Update the name of the role
-        $this->roles->updateById($id, ['display_name' => $input['roleData']['display_name']]);
+        $this->roles->updateById($id, ['display_name' => $input['role']['display_name']]);
 
         // Call roles repository and sync permissions
         $this->roles->syncPermissions($id, $input['permissions']);
@@ -121,7 +121,8 @@ class rolesController extends Controller
         return response()->json(['result' => 'Success']);
     }
 
-    public function edit($id){
-
+    public function delete($id){
+        $this->roles->deleteById($id);
+        return response()->json(['result' => 'Success']);
     }
 }

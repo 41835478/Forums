@@ -15,8 +15,9 @@ next();
 Vue.component('access-roles-index', require('./components/access/roles/index.vue'));
 Vue.component('access-roles-permissions', require('./components/access/roles/permissions.vue'));
 Vue.component('access-roles-create', require('./components/access/roles/create.vue'));
+Vue.component('modal', require('../components/modal.vue'));
 
+//console.log(new Errors());
 const app = new Vue({
-    el: '#app'
-
+    el: '#app',
 });

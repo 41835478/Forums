@@ -24,7 +24,14 @@ class EditPermissionsRequest extends FormRequest
     public function rules()
     {
         return [
-            'roleData.display_name' => 'required',
+            'role.display_name' => 'required',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'role.display_name' => 'Display Name'
         ];
     }
 }

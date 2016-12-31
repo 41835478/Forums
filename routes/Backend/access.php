@@ -22,6 +22,9 @@ Route::group([
         Route::get('/{id}/permissions', 'rolesController@permissions');
         Route::post('/{id}', 'rolesController@updatePermissions');
 
+        // For deleting a role
+        Route::delete('/{id}', 'rolesController@delete');
+
     });
 
     /**

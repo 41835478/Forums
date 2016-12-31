@@ -26,7 +26,7 @@ class CreateRoleRequest extends FormRequest
         return [
             'role.name' => 'required|unique:roles,name|max:30',
             'role.display_name' => 'required|unique:roles,display_name|max:30',
-            'role.description' => 'max:255'
+            'role.description' => 'required|max:255'
         ];
     }
 

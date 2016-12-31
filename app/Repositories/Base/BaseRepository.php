@@ -101,6 +101,7 @@ abstract class BaseRepository implements BaseRepositoryContract {
      */
     public function deleteById($id)
     {
+        \Log::info('Deleting id ' . $id);
         $this->query = null;
         return $this->model->destroy($id);
     }
