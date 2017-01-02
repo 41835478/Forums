@@ -25,21 +25,25 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li>
+                    <li class="{{ active('admin') ? 'current-page' : 'inactive-page' }}">
                         <a href="/admin">
                             <i class="fa fa-home"></i>
                             Dashboard
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ active('admin/access/*') ? 'current-page' : 'inactive-page' }}">
                         <a href="javascript:void(0)">
                             <i class="fa fa-key"></i>
                             Access Control
                             <span class="fa fa-chevron-down"></span>
                         </a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Roles</a></li>
-                            <li><a href="#">Permissions</a></li>
+                            <li class="{{ active(['admin/access/roles/*', 'admin/access/roles']) ? 'current-page' : 'inactive-page' }}">
+                                <a href="/admin/access/roles">Roles</a>
+                            </li>
+                            <li class="{{ active(['admin/access/permissions/*', 'admin/access/permissions']) ? 'current-page' : 'inactive-page' }}">
+                                <a href="/admin/access/permissions">Permissions</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

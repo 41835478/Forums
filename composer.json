@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "zizaco/entrust": "5.2.x-dev",
         "thomaswelton/laravel-gravatar": "~1.0",
-        "laracasts/utilities": "~2.0"
+        "laracasts/utilities": "~2.0",
+        "watson/active": "~2.0.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

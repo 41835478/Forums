@@ -170,6 +170,7 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        Watson\Active\ActiveServiceProvider::class,
 
 
         //
@@ -234,6 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
+        'Active' => Watson\Active\Facades\Active::class
         //'JavaScript' => Laracasts\Utilities\JavaScript\JavaScriptFacade::class
     ],
 
