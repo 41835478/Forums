@@ -68,11 +68,10 @@
                         <br />
 
                         <div class="form-group">
-                            <button type="submit" class="form-control btn btn-primary">Update</button>
+                            <button type="submit" class="form-control btn btn-primary">Create role</button>
                         </div>
                     </form>
                 </div>
-            @{{ errors }}
             <!--END OF X-CONTENT-->
             </div>
             <!--END OF X-PANEL-->

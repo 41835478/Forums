@@ -1,34 +1,37 @@
 <script type="text/babel">
     export default{
         data(){
-            return{
-                roles: window.roles,
+            return {
+                roles: window.roles.map(
+                        function (role) {
+                            role.showDelete = false;
+                            return role;
+                        }
+                ),
                 searchRoleInput: ''
             }
         },
-        components:{
+        components: {},
 
-        },
+        methods: {
+            deleteRole: function (role) {
+                role.showDelete = false;
 
-        methods:{
-            pressedDelete: function(display_name, id){
-                if (prompt ('Are you sure you want to delete ' + display_name + '?\nType YES to delete', '') == "YES"){
-                    this.$http.delete('/admin/access/roles/' + id).then(function(response){
-                        window.location = '/admin/access/roles';
-                    });
-                }
+                this.$http.delete('/admin/access/roles/' + role.id).then(function (response) {
+                    window.location = '/admin/access/roles';
+                });
             }
         },
-        computed:{
-            searchedRoles: function(){
+
+        computed: {
+            searchedRoles: function () {
                 self = this;
-                return this.roles.filter(function(role){
+                return this.roles.filter(function (role) {
                     return role['display_name']
-                        .toUpperCase()
-                        .includes(
-                            self.searchRoleInput
                             .toUpperCase()
-                        );
+                            .includes(
+                                    self.searchRoleInput.toUpperCase()
+                            );
                 })
             }
         }
