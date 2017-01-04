@@ -26,7 +26,7 @@
                     <h2>Roles</h2>
 
                     <div class="pull-right">
-                        <a href="/admin/access/roles/create" class="btn btn-info btn-xs">
+                        <a href="#" class="btn btn-info btn-xs">
                             <i class="fa fa-plus"></i> Add Role
                         </a>
                     </div>
@@ -52,38 +52,19 @@
                                 <td>@{{ role.display_name }}</td>
                                 <td>@{{ role.description }}</td>
                                 <td>@{{ role.perms_count }}</td>
-
                                 <td>
                                     <a class="btn btn-primary btn-xs" :href="'/admin/access/roles/' + role.id +'/permissions'">
                                         <i class="fa fa-bars"></i> Manage
                                     </a>
 
-                                    <a class="btn btn-danger btn-xs" v-on:click="role.showDelete = true">
+                                    <a class="btn btn-danger btn-xs" v-on:click="pressedDelete(role.display_name, role.id)">
                                         <i class="fa fa-bars"></i> Delete
                                     </a>
                                 </td><!--END OF BUTTON GROUP-->
                             </tr>
+
                         </tbody>
                     </table>
-
-
-                </div>
-
-                <div v-for="role in roles">
-                    <modal v-if="role.showDelete">
-                        <template slot="header">
-                            <h3>Delete @{{ role.display_name }}?</h3>
-                        </template>
-
-                        <template slot="body">
-                            <p>Are you sure you want to delete this role? Deleting roles could cause serious or even fatal errors to the system.</p>
-                        </template>
-
-                        <template slot="footer">
-                            <button type="button" class="btn btn-danger" @click="deleteRole(role)">Yes, delete role!</button>
-                            <button type="button" class="btn btn-primary" @click="role.showDelete = false">No, go back.</button>
-                        </template>
-                    </modal>
                 </div>
                 <!--END OF X-CONTENT-->
             </div>

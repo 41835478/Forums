@@ -30,17 +30,4 @@ Route::group([
     /**
      * Permissions routes
      */
-    Route::group([
-        'prefix' => 'permissions'
-    ], function(){
-       // Permissions index page
-        Route::get('/', 'permissionsController@index');
-
-        // Destroying a permission
-        Route::delete('/{id}', 'permissionsController@delete');
-
-        // Creating a permission
-        Route::post('/', 'permissionsController@store');
-    });
-
 });
