@@ -2,7 +2,13 @@
     export default{
         data(){
             return{
-                roles: window.roles,
+                // add showDelete property to roles
+                roles: window.roles.map(
+                    function (role){
+                        role.showDelete = false;
+                        return role;
+                    }
+                ),
                 searchRoleInput: ''
             }
         },
@@ -11,12 +17,12 @@
         },
 
         methods:{
-            pressedDelete: function(display_name, id){
-                if (prompt ('Are you sure you want to delete ' + display_name + '?\nType YES to delete', '') == "YES"){
-                    this.$http.delete('/admin/access/roles/' + id).then(function(response){
-                        window.location = '/admin/access/roles';
-                    });
-                }
+            deleteRole: function(role){
+                role.showDelete = false;
+
+                this.$http.delete('/admin/access/roles/' + role.id).then(function(response){
+                    window.location = '/admin/access/roles';
+                });
             }
         },
         computed:{

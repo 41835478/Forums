@@ -123,6 +123,6 @@ class rolesController extends Controller
 
     public function delete($id){
         $this->roles->deleteById($id);
-        return response()->json(['result' => 'Success']);
+
     }
 }
