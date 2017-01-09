@@ -17,7 +17,7 @@ class CreateBoardsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->smallInteger('sort')->unsigned();
+            $table->smallInteger('sort')->unsigned()->default(0);
             $table->morphs('parent');
 
             $table->timestamps();
