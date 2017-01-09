@@ -55,7 +55,6 @@
                         </div>
                     </form>
                 </div>
-                @{{ returnData }}
                 <!--END OF X-CONTENT-->
             </div>
             <!--END OF X-PANEL-->
